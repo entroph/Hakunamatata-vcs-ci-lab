@@ -19,6 +19,5 @@ public class TrainSensorTest {
 
     @Test
     public void NewExampleTest(){
-        assert equals(1,0);
     }
 }
