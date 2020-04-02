@@ -48,6 +48,7 @@ public class TrainControllerImpl implements TrainController {
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
 		this.step = joystickPosition;
+		//köszönöm!!
 		final ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
 		ses.scheduleWithFixedDelay(this::followSpeed, 0, 1, TimeUnit.SECONDS);
 	}
