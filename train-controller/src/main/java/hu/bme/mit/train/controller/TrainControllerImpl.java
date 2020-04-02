@@ -2,6 +2,10 @@ package hu.bme.mit.train.controller;
 
 import hu.bme.mit.train.interfaces.TrainController;
 
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
+
 public class TrainControllerImpl implements TrainController {
 
 	private int step = 0;
@@ -43,7 +47,10 @@ public class TrainControllerImpl implements TrainController {
 
 	@Override
 	public void setJoystickPosition(int joystickPosition) {
-		this.step = joystickPosition;		
+		this.step = joystickPosition;
+		//köszönöm!!
+		final ScheduledExecutorService ses = Executors.newSingleThreadScheduledExecutor();
+		ses.scheduleWithFixedDelay(this::followSpeed, 0, 1, TimeUnit.SECONDS);
 	}
 
 }
